@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44d4b04560345b499b6fde59a1a6ac7, type: 3}
+  m_Name: Spear
+  m_EditorClassIdentifier: 
+  projectileName: Spear
+  sprite: {fileID: 0}
+  prefab: {fileID: 5961951326276646834, guid: 002c51f9f7e98aa4fa36a27c16526a84, type: 3}
+  speed: 25
+  lifetime: 3
+  damage: 10
+  pierce: 0

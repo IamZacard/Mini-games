@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcaba0fe7efea948a1039590d08763b, type: 3}
+  m_Name: GoalPattern_9
+  m_EditorClassIdentifier: 
+  patternName: Pattern_9
+  type: 4
+  speed: 5.0861816
+  points:
+  - {x: 15.985612, y: 7.011094, z: 0}
+  - {x: 15.849798, y: 6.7287874, z: 0}
+  - {x: 14.037832, y: 2.2265692, z: 0}
+  defaultPoint: {x: 14, y: 5, z: 0}
+  amplitude: 0.65719146
+  frequency: 0.63847995
+  teleportInterval: 1.1731796

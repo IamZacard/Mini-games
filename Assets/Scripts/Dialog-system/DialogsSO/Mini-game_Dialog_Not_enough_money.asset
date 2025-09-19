@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2d0506fd422c1449ff5bc7e86c3b86, type: 3}
+  m_Name: Mini-game_Dialog_Not_enough_money
+  m_EditorClassIdentifier: 
+  lines:
+  - speakerName: 'Vendor '
+    speakerAvatar: {fileID: 0}
+    text: '"Entry costs {entryCost} gold, mate. Come back when you can pay."'
+    choices: []
+    vendorData: {fileID: 11400000, guid: 3950c146a448ca8458b8986f6a28c730, type: 2}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042bf95ec9416e04dbf5482878fbf998, type: 3}
+  m_Name: Player Stats
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  runSpeed: 8
+  jumpForce: 12
+  dashForce: 15
+  dashDuration: 0.2
+  acceleration: 50
+  deceleration: 40
+  gravityScale: 4.5
+  jumpHeight: 3.5
+  attacks:
+  - name: Attack1
+    size: {x: 1.5, y: 1}
+    offset: {x: -0.5, y: 0}
+    meleeDamage: 10
+    meleeAttackCooldown: 0.7
+    knockbackForce: 10
+    animationClip: {fileID: 7400000, guid: 2820a1247c9956148ba42d14040f9da3, type: 2}
+  - name: Attack2
+    size: {x: 1.5, y: 1}
+    offset: {x: -0.5, y: 0}
+    meleeDamage: 5
+    meleeAttackCooldown: 0.7
+    knockbackForce: 5
+    animationClip: {fileID: 7400000, guid: b7b8ad1099357104e906e34585a21b9c, type: 2}
+  - name: Attack3
+    size: {x: 1.5, y: 1}
+    offset: {x: -0.5, y: 0}
+    meleeDamage: 15
+    meleeAttackCooldown: 0.7
+    knockbackForce: 15
+    animationClip: {fileID: 7400000, guid: 84343482c89283e439f32801b88b354a, type: 2}
+  rangedAttacks:
+    name: RangedAttack
+    rangedDamage: 10
+    rangedAttackCooldown: 1
+    knockbackForce: 5
+    projectilePrefab: {fileID: 7816451224514608076, guid: 0f4f8a6a2fb4ce0449e2342bc5674dd5, type: 3}
+    rangedAttackClip: {fileID: 7400000, guid: a21fdb7e97a351941bb87a7b6b97a1a2, type: 2}
+  startingGold: 100

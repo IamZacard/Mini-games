@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcaba0fe7efea948a1039590d08763b, type: 3}
+  m_Name: GoalPattern_15
+  m_EditorClassIdentifier: 
+  patternName: Pattern_15
+  type: 3
+  speed: 3.6309342
+  points:
+  - {x: 15.864189, y: 6.3118095, z: 0}
+  - {x: 10.015809, y: 3.976829, z: 0}
+  - {x: 17.975672, y: 7.5039825, z: 0}
+  defaultPoint: {x: 14, y: 5, z: 0}
+  amplitude: 1.2091607
+  frequency: 0.62861174
+  teleportInterval: 0.6842574
