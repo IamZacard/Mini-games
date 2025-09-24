@@ -102,7 +102,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         lastAttackTime = Time.time;
 
         // Stop movement immediately when attack starts
-        SetVelocityToZero();
+        //SetVelocityToZero();
 
         hitbox.SetAttack(attackData);
 

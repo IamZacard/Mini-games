@@ -40,6 +40,11 @@ public class AttackData
 
     [Header("Animation")]
     public AnimationClip animationClip;
+
+    [Header("Movement Behavior")]
+    public MovementBehavior movementBehavior = MovementBehavior.StopOnGround;
+    public float movementModifier = 0f; // For partial speed, dash force, etc.
+    public bool allowAirMovement = false; // Can move in air during attack
 }
 
 [System.Serializable]
@@ -56,4 +61,15 @@ public class RangedAttackData
 
     [Header("Animation")]
     public AnimationClip rangedAttackClip;
+}
+
+[System.Serializable]
+public enum MovementBehavior
+{
+    NoChange,           // Don't affect movement at all
+    StopOnGround,       // Stop only when grounded  
+    StopAlways,         // Stop regardless of ground state
+    ReduceSpeed,        // Reduce speed by movementModifier %
+    LockMovement,       // Lock all movement input during attack
+    CustomVelocity      // Set specific velocity from movementModifier
 }

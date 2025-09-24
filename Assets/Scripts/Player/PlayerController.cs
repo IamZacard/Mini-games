@@ -109,12 +109,8 @@ public class PlayerController : MonoBehaviour, IPausable
         if (isGrounded && !wasGrounded)
         {
             lastGroundedTime = Time.time;
-            if (Time.time - lastLandingTime > landingBuffer)
-            {
-                isJumping = false;
-                lastLandingTime = Time.time;
-                wasJumpInitiated = false;
-            }
+            lastLandingTime = Time.time;
+            isJumping = false;
         }
 
         if (!isGrounded && wasGrounded)
@@ -195,7 +191,7 @@ public class PlayerController : MonoBehaviour, IPausable
 
     public bool ShouldHardLand()
     {
-        // Hard land if fall speed exceeds threshold (more than 15 = faster than -15)
+        // Hard land for high speed falls OR long air time
         bool hardLand = maxFallSpeedThisAir <= hardLandMinSpeed || currentAirTime >= longFallMinAirTime;
         Debug.Log($"ShouldHardLand: {hardLand} | MaxFallSpeed: {maxFallSpeedThisAir} | AirTime: {currentAirTime}");
         return hardLand;
@@ -203,7 +199,9 @@ public class PlayerController : MonoBehaviour, IPausable
 
     public bool ShouldSoftLand()
     {
-        bool softLand = wasJumpInitiated && currentAirTime < quickLandMaxAirTime && maxFallSpeedThisAir >= softLandMaxSpeed;
+        // Soft land for quick, gentle landings (OR condition, not AND)
+        bool softLand = (wasJumpInitiated && currentAirTime < quickLandMaxAirTime) ||
+                       (maxFallSpeedThisAir >= softLandMaxSpeed && currentAirTime < quickLandMaxAirTime);
         Debug.Log($"ShouldSoftLand: {softLand} | WasJump: {wasJumpInitiated} | AirTime: {currentAirTime} | MaxFallSpeed: {maxFallSpeedThisAir}");
         return softLand;
     }

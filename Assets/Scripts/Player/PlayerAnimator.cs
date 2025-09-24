@@ -12,6 +12,11 @@ public class PlayerAnimator : MonoBehaviour
     private int currentState;
     private int previousState;
     private bool wasInAir;
+    private bool isInLandingState; 
+    private float landingStateTimer;
+
+    [Header("Animation Settings")]
+    [SerializeField] private float landingAnimDuration = 0.3f;
 
     [Header("Walking Settings")]
     [SerializeField] private float walkThreshold = 3f;
@@ -50,6 +55,15 @@ public class PlayerAnimator : MonoBehaviour
 
         int nextState = GetNextState();
 
+        if (isInLandingState)
+        {
+            landingStateTimer -= Time.deltaTime;
+            if (landingStateTimer <= 0f)
+            {
+                isInLandingState = false;
+            }
+        }
+
         if (nextState != currentState)
         {
             animator.CrossFade(nextState, 0.05f, 0);
@@ -64,7 +78,6 @@ public class PlayerAnimator : MonoBehaviour
         if (meleeAttack != null && meleeAttack.IsAttacking())
         {
             int comboIndex = meleeAttack.GetCurrentComboIndex();
-            // Get the PREVIOUS combo index since we increment after attack starts
             int attackIndex = comboIndex == 0 ? 2 : comboIndex - 1;
 
             return attackIndex switch
@@ -85,16 +98,37 @@ public class PlayerAnimator : MonoBehaviour
         if (controller.IsDashing())
             return Dash;
 
+        // Stay in landing animation if we're still playing it
+        if (isInLandingState && (currentState == SoftLand || currentState == HardLand))
+        {
+            return currentState;
+        }
+
         // Landing detection
-        if (isGrounded && wasInAir)
+        if (isGrounded && wasInAir && !isInLandingState)
         {
             wasInAir = false;
+
+            bool shouldHardLand = controller.ShouldHardLand();
+            bool shouldSoftLand = controller.ShouldSoftLand();
+
+            Debug.Log($"Landing - Hard: {shouldHardLand}, Soft: {shouldSoftLand}, AirTime: {controller.GetCurrentAirTime()}, Speed: {controller.GetMaxFallSpeed()}");
+
+            // Reset tracking AFTER we've determined landing type
             controller.ResetAirTracking();
 
-            if (controller.ShouldHardLand())
+            if (shouldHardLand)
+            {
+                isInLandingState = true;
+                landingStateTimer = landingAnimDuration;
                 return HardLand;
-            else if (controller.ShouldSoftLand())
+            }
+            else if (shouldSoftLand)
+            {
+                isInLandingState = true;
+                landingStateTimer = landingAnimDuration;
                 return SoftLand;
+            }
         }
 
         // Air states
@@ -114,7 +148,6 @@ public class PlayerAnimator : MonoBehaviour
         else if (absVelX > walkThreshold)
             return Walk;
 
-        // Idle variants
         return GetIdleVariant();
     }
 

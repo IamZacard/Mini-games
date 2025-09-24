@@ -26,14 +26,14 @@ MonoBehaviour:
     size: {x: 1.5, y: 1}
     offset: {x: -0.5, y: 0}
     meleeDamage: 10
-    meleeAttackCooldown: 0.7
+    meleeAttackCooldown: 0.5
     knockbackForce: 10
     animationClip: {fileID: 7400000, guid: 2820a1247c9956148ba42d14040f9da3, type: 2}
   - name: Attack2
     size: {x: 1.5, y: 1}
     offset: {x: -0.5, y: 0}
     meleeDamage: 5
-    meleeAttackCooldown: 0.7
+    meleeAttackCooldown: 0.3
     knockbackForce: 5
     animationClip: {fileID: 7400000, guid: b7b8ad1099357104e906e34585a21b9c, type: 2}
   - name: Attack3
