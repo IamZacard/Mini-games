@@ -66,9 +66,9 @@ public class PauseCoordinator : MonoBehaviour
         // Auto-populate MovementOnly with player controllers
         if (pauseGroups.ContainsKey("MovementOnly") && pauseGroups["MovementOnly"].Count == 0)
         {
-            var playerControllers = allPausables.OfType<PlayerController>().Cast<IPausable>().ToList();
-            pauseGroups["MovementOnly"] = playerControllers;
-            Debug.Log($"Auto-populated MovementOnly with {playerControllers.Count} controllers");
+            //var playerControllers = allPausables.OfType<PlayerController>().Cast<IPausable>().ToList();
+            //pauseGroups["MovementOnly"] = playerControllers;
+            //Debug.Log($"Auto-populated MovementOnly with {playerControllers.Count} controllers");
         }
 
         if (!pauseGroups.ContainsKey("Default"))
@@ -117,13 +117,13 @@ public class PauseCoordinator : MonoBehaviour
         allPausables = allPausables.Where(p => p != null && (p as MonoBehaviour) != null).ToList();
 
         // Movement group (PlayerController)
-        var playerControllers = allPausables.OfType<PlayerController>().Cast<IPausable>().ToList();
-        pauseGroups["MovementOnly"] = playerControllers;
+        //var playerControllers = allPausables.OfType<PlayerController>().Cast<IPausable>().ToList();
+        //pauseGroups["MovementOnly"] = playerControllers;
 
         // Default group (everything)
         pauseGroups["Default"] = allPausables;
 
-        Debug.Log($"PauseCoordinator: Refreshed - MovementOnly: {playerControllers.Count}, Default: {allPausables.Count}");
+        //Debug.Log($"PauseCoordinator: Refreshed - MovementOnly: {playerControllers.Count}, Default: {allPausables.Count}");
     }
 
     public void ResumeGroup(string groupName)

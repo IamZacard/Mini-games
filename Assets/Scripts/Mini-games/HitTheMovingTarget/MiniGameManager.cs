@@ -6,7 +6,7 @@ public class MiniGameManager : MonoBehaviour
 {
     public static MiniGameManager Instance { get; private set; }
 
-    [SerializeField] private Inventory Inventory;
+    //[SerializeField] private Inventory Inventory;
 
     private void Awake()
     {
@@ -52,7 +52,7 @@ public class MiniGameManager : MonoBehaviour
 
         if (success)
         {
-            Inventory.Add(ResourceType.Gold, definition.rewardGold);
+            //Inventory.Add(ResourceType.Gold, definition.rewardGold);
         }
 
         // Return to festival hub scene

@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 public class DebugManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private PlayerController player;
-
+    [SerializeField] private PlayerManager player;
     private Camera mainCam;
 
     private void Awake()
@@ -17,12 +16,10 @@ public class DebugManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            // Close all dialogs first
             if (DialogManager.Instance != null)
             {
                 DialogManager.Instance.ForceEndDialog();
             }
-
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
@@ -31,7 +28,24 @@ public class DebugManager : MonoBehaviour
             Vector3 mouseWorld = mainCam.ScreenToWorldPoint(Input.mousePosition);
             mouseWorld.z = 0f;
             player.transform.position = mouseWorld;
+
+            // Reset velocity after teleporting
+            var rb = player.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
         }
 
+        // Additional debug keys
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }

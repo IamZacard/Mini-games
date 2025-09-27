@@ -10,8 +10,8 @@ public class VendorInteraction : MonoBehaviour
 
     [Header("Game Data")]
     [SerializeField] private VendorData vendorData;
-    [SerializeField] private PlayerStats playerStats;
-    [SerializeField] private Inventory inventory;
+    //[SerializeField] private PlayerStats playerStats;
+    //[SerializeField] private Inventory inventory;
 
     [Header("Dialogs")]
     [SerializeField] private Dialog firstDialog;
@@ -72,7 +72,7 @@ public class VendorInteraction : MonoBehaviour
 
     private void HandleAccept()
     {
-        if (inventory.Spend(ResourceType.Gold, vendorData.entryCost))
+        /*if (inventory.Spend(ResourceType.Gold, vendorData.entryCost))
         {
             if (enoughMoneyDialog != null)
                 DialogManager.Instance.StartDialog(enoughMoneyDialog, null, TryStartMiniGame);
@@ -83,7 +83,7 @@ public class VendorInteraction : MonoBehaviour
         {
             if (notEnoughMoneyDialog != null)
                 DialogManager.Instance.StartDialog(notEnoughMoneyDialog);
-        }
+        }*/
     }
 
     private void HandleDecline()

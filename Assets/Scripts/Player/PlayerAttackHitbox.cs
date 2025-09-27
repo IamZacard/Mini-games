@@ -17,7 +17,7 @@ public class PlayerAttackHitbox : MonoBehaviour
         col.enabled = false;
 
         // Get player transform (parent or root)
-        playerTransform = GetComponentInParent<PlayerMeleeAttack>()?.transform;
+        playerTransform = GetComponentInParent<MeleeAttackController>()?.transform;
         if (playerTransform == null)
             playerTransform = transform.parent ?? transform;
 
@@ -56,7 +56,7 @@ public class PlayerAttackHitbox : MonoBehaviour
         var health = other.GetComponent<IHealth>();
         if (health != null)
         {
-            health.TakeDamage(currentAttack.meleeDamage, gameObject);
+            health.TakeDamage(currentAttack.damage, gameObject);
 
             // IMPROVED KNOCKBACK
             var rb = other.attachedRigidbody;
